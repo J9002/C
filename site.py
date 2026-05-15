@@ -3,21 +3,20 @@ import subprocess
 from main import write
 
 write("U1.txt", "")
-write("U2.txt", "")
 count = 0
 
 def run_script():
-    subprocess.run(["python3", "IP.py"])
+    subprocess.run(["python3", "script.py"])
 
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         global count
-        if count < 2:
+
+        if self.path == "/" and count < 2:
             count += 1
             run_script()
-        self.send_response(200)
-        self.end_headers()
-        self.wfile.write(b"OK")
+        return super().do_GET()
 
 httpd = HTTPServer(('localhost', 8000), Handler)
 httpd.serve_forever()
+=
