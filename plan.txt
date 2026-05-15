@@ -1,7 +1,7 @@
 host runs start.sh (or auto)
 runs main.py
 runs site.py
-clears U1 and U2 ip cache
+clears ip cache
 uses user ip and writes to U1
 waits for U2 (show blank page in the meantime, just saying "waiting")
 when U2 connects, write to U2
