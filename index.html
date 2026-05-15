@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            Promise.all([
+                fetch("U1.txt").then(r => r.text()),
+                fetch("U2.txt").then(r => r.text())
+            ])
+            .then(([u1, u2]) => {
+                document.body.innerText = "U1:\n" + u1 + "\n\nU2:\n" + u2;
+            });
+        </script>
+    </body>
+</html>
