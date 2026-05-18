@@ -1,4 +1,5 @@
 from sympy import *
+from write import write
 
 def get(lines):
     terms = []
@@ -26,11 +27,9 @@ def calculate():
     out = str(q).replace("**", "^")
     if r != 0:
         out += " + " + str(r).replace("**", "^") + "/(" + str(d).replace("**", "^") + ")"
-    with open("/workspaces/C/api/output.txt", "w") as f2:
-        f2.write(out)
+    write("output.txt", out)
 
 def main():
-    
     global final
     global divisor
     with open("/workspaces/C/api/input.txt") as f:
