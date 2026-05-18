@@ -6,9 +6,6 @@ app = FastAPI()
 
 @app.get("/run")
 def run_script():
-    with open("input.txt", "w") as f:
-        f.write("hello world")
-
     subprocess.run(["python3", "api/run.py"], check=True)
 
     if os.path.exists("output.txt"):
